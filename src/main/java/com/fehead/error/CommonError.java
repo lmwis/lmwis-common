@@ -2,7 +2,7 @@ package com.fehead.error;
 
 /**
  * @author lmwis
- * @description:
+ * @description:通用错误接口
  * @date 2019-08-28 20:29
  * @Version 1.0
  */

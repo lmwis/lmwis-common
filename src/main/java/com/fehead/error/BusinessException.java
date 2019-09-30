@@ -2,7 +2,7 @@ package com.fehead.error;
 
 /**
  * @author lmwis
- * @description:
+ * @description:业务异常类
  * @date 2019-08-28 20:28
  * @Version 1.0
  */

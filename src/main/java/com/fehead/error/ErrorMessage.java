@@ -4,7 +4,7 @@ import java.util.Date;
 
 /**
  * @author lmwis
- * @description:
+ * @description:错误信息封装
  * @date 2019-08-28 20:29
  * @Version 1.0
  */

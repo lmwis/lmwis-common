@@ -2,7 +2,7 @@ package com.fehead.response;
 
 /**
  * @author lmwis
- * @description:
+ * @description:统一返回类型
  * @date 2019-08-28 20:33
  * @Version 1.0
  */

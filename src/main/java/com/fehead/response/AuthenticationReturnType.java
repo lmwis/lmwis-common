@@ -2,7 +2,7 @@ package com.fehead.response;
 
 /**
  * @author lmwis
- * @description:
+ * @description:SpringSecurity身份认证时的返回类型
  * @date 2019-08-29 15:56
  * @Version 1.0
  */

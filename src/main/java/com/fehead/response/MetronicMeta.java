@@ -2,7 +2,7 @@ package com.fehead.response;
 
 /**
  * @author lmwis
- * @description:
+ * @description:metronic后台管理模版数据表格返回类型封装
  * @date 2019-08-30 09:01
  * @Version 1.0
  */

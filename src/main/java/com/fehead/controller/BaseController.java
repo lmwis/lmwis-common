@@ -18,7 +18,7 @@ import java.util.Map;
 
 /**
  * @author lmwis
- * @description:
+ * @description:基本的controller类，异常处理和部分校验
  * @date 2019-08-28 20:27
  * @Version 1.0
  */
@@ -52,6 +52,12 @@ public class BaseController {
         return CommonReturnType.create(responseData,"fail");
     }
 
+    /**
+     * 判断字符串是否为空
+     * @param args
+     * @return
+     * @throws BusinessException
+     */
     protected boolean validateNull(String ... args) throws BusinessException {
         for (String s:args){
             if (StringUtils.isEmpty(s)){
@@ -61,6 +67,12 @@ public class BaseController {
         return true;
     }
 
+    /**
+     * 判断字符串是否为空字符串，数字是否为0，对象是否为null
+     * @param args
+     * @return
+     * @throws BusinessException
+     */
     protected boolean validateNull(Object ... args) throws BusinessException {
         for (Object o:args){
             if ((o instanceof String && StringUtils.equals(o.toString(),""))
