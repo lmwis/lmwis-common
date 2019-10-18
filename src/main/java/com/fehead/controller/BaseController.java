@@ -3,10 +3,12 @@ package com.fehead.controller;
 import com.fehead.error.BusinessException;
 import com.fehead.error.EmBusinessError;
 import com.fehead.response.CommonReturnType;
+import com.fehead.response.MetronicMeta;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.dao.DataAccessException;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -82,5 +84,23 @@ public class BaseController {
             }
         }
         return true;
+    }
+
+    /**
+     * MetronicMeta 封装 ，产生表头
+     * @param pageable
+     * @param totalPage
+     * @param size
+     * @return
+     */
+    protected MetronicMeta generatorMeta(Pageable pageable, Integer totalPage, Integer size){
+        MetronicMeta meta = new MetronicMeta();
+        meta.setPage(pageable.getPageNumber());
+        meta.setPerpage(pageable.getPageSize());
+        meta.setSort("asc");
+        meta.setTotal(size);
+        meta.setPages(totalPage);
+        meta.setField("id");
+        return meta;
     }
 }
