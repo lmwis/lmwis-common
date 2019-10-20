@@ -8,7 +8,7 @@
     <!--根据需要重新指定父类-->
     <groupId>com.fehead</groupId>
     <artifactId>course-except-root</artifactId>
-    <version>1.2-SNAPSHOT</version>
+    <version>1.3-SNAPSHOT</version>
     <relativePath>../course-except-root/pom.xml</relativePath>
   </parent>
 

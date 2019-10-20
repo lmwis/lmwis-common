@@ -39,16 +39,16 @@ public class BaseController {
             BusinessException businessException = (BusinessException)ex;
             responseData.put("errorCode", businessException.getErrorCode());
             responseData.put("errorMsg", businessException.getErrorMsg());
-            System.out.println(responseData);
+            logger.info(responseData.toString());
         } else if(ex instanceof DataAccessException){ //数据库连接错误
             logger.info(ex.getMessage());
             responseData.put("errorCode", EmBusinessError.DATARESOURCE_CONNECT_FAILURE.getErrorCode());
             responseData.put("errorMsg", EmBusinessError.DATARESOURCE_CONNECT_FAILURE.getErrorMsg());
-            System.out.println(responseData);
+            logger.info(responseData.toString());
         }else{
             responseData.put("errorCode", EmBusinessError.UNKNOWN_ERROR.getErrorCode());
             responseData.put("errorMsg", ex.getMessage());
-            System.out.println(responseData);
+            logger.info(responseData.toString());
         }
 
         return CommonReturnType.create(responseData,"fail");
@@ -88,6 +88,7 @@ public class BaseController {
 
     /**
      * MetronicMeta 封装 ，产生表头
+     *  默认按照id升序排列
      * @param pageable
      * @param totalPage
      * @param size
