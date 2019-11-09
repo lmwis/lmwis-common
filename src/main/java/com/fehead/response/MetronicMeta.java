@@ -1,11 +1,14 @@
 package com.fehead.response;
 
+import io.swagger.annotations.ApiModel;
+
 /**
  * @author lmwis
  * @description:metronic后台管理模版数据表格返回类型封装
  * @date 2019-08-30 09:01
  * @Version 1.0
  */
+@ApiModel(value = "Metronic后台管理系统数据表格返回类型的表头")
 public class MetronicMeta {
 
     private int page;

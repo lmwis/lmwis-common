@@ -25,7 +25,7 @@ import java.util.Map;
  * @Version 1.0
  */
 public class BaseController {
-    Logger logger = LoggerFactory.getLogger(BaseController.class);
+    private static final Logger logger = LoggerFactory.getLogger(BaseController.class);
 
     public static final String CONTENT_TYPE_FORMED = "application/x-www-form-urlencoded";
 
@@ -56,7 +56,7 @@ public class BaseController {
 
     /**
      * 判断字符串是否为空
-     * @param args
+     * @param args 校验参数
      * @return
      * @throws BusinessException
      */
@@ -71,7 +71,7 @@ public class BaseController {
 
     /**
      * 判断字符串是否为空字符串，数字是否为0，对象是否为null
-     * @param args
+     * @param args 校验参数
      * @return
      * @throws BusinessException
      */
@@ -89,9 +89,9 @@ public class BaseController {
     /**
      * MetronicMeta 封装 ，产生表头
      *  默认按照id升序排列
-     * @param pageable
-     * @param totalPage
-     * @param size
+     * @param pageable 分页器
+     * @param totalPage 总页数
+     * @param size 每一页数据条数
      * @return
      */
     protected MetronicMeta generatorMeta(Pageable pageable, Integer totalPage, Integer size){

@@ -1,11 +1,14 @@
 package com.fehead.response;
 
+import io.swagger.annotations.ApiModel;
+
 /**
  * @author lmwis
  * @description:SpringSecurity身份认证时的返回类型
  * @date 2019-08-29 15:56
  * @Version 1.0
  */
+@ApiModel(value = "api认证相关接口返回类型",parent = FeheadResponse.class)
 public class AuthenticationReturnType extends FeheadResponse{
 
     //返回状态码
