@@ -1,4 +1,4 @@
-package com.fehead.response;
+package com.fehead.lang.response;
 
 import io.swagger.annotations.ApiModel;
 

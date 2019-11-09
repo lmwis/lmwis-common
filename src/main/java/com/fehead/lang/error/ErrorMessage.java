@@ -1,4 +1,4 @@
-package com.fehead.error;
+package com.fehead.lang.error;
 
 import java.util.Date;
 

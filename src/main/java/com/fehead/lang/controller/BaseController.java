@@ -1,9 +1,9 @@
-package com.fehead.controller;
+package com.fehead.lang.controller;
 
-import com.fehead.error.BusinessException;
-import com.fehead.error.EmBusinessError;
-import com.fehead.response.CommonReturnType;
-import com.fehead.response.MetronicMeta;
+import com.fehead.lang.error.BusinessException;
+import com.fehead.lang.error.EmBusinessError;
+import com.fehead.lang.response.CommonReturnType;
+import com.fehead.lang.response.MetronicMeta;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
