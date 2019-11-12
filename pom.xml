@@ -29,6 +29,11 @@
 
   <dependencies>
 
+    <!--lombok-->
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+    </dependency>
 
     <!--字符串操作工具类-->
     <dependency>
