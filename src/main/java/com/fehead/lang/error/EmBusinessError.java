@@ -41,7 +41,10 @@ public enum EmBusinessError implements CommonError {
     SERVICE_REQUIRE_ROLE_ADMIN(90002,"访问服务需要管理员权限"),
 
     FEHEAD_CA_CERTIFICATE_ILLEGL(90003,"证书不合法"),
-    FEHEAD_CA_CERTIFICATE_GENERATOR_FAIL(90004,"证书生成失败");
+    FEHEAD_CA_CERTIFICATE_GENERATOR_FAIL(90004,"证书生成失败"),
+
+    SERVICE_AUTHENTICATION_ILLEGAL(90005,"用户认证凭据不合法"),
+    SERVICE_AUTHENTICATION_INVALID(90006,"用户认证凭据无效");
 
     private EmBusinessError(int errCode, String errMsg) {
         this.errCode = errCode;
