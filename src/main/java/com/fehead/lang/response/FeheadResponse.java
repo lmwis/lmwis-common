@@ -2,6 +2,7 @@ package com.fehead.lang.response;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import lombok.Data;
 
 /**
  * @author lmwis
@@ -10,6 +11,7 @@ import io.swagger.annotations.ApiModelProperty;
  * @Version 1.0
  */
 @ApiModel("api接口通用返回类型")
+@Data
 public class FeheadResponse {
 
     // 返回数据
