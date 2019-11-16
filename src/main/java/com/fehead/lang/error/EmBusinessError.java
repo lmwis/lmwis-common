@@ -16,6 +16,7 @@ public enum EmBusinessError implements CommonError {
     DATARESOURCE_CONNECT_FAILURE(10005,"数据源错误"),
     WRONG_TOKEN(10006,"token错误"),
     OPERATION_ILLEGAL(10007, "操作不合法"),
+    JSON_SEQUENCE_WRONG(10008,"不合法的json序列化字符串"),
 
     // 20000 开头为用户信息相关错误定义
     USER_NOT_EXIST(20001, "用户不存在"),

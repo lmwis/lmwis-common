@@ -20,6 +20,7 @@ public class StringIdGenerator {
      * 使用UUID生成字符串ID
      * 规则：
      *  当前时间戳+UUID
+     * 总位数45
      * @return
      */
     public String generatorId() {

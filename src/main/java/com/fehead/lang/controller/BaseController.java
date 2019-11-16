@@ -10,6 +10,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.dao.DataAccessException;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
@@ -39,16 +40,21 @@ public class BaseController {
             BusinessException businessException = (BusinessException)ex;
             responseData.put("errorCode", businessException.getErrorCode());
             responseData.put("errorMsg", businessException.getErrorMsg());
-            logger.info(responseData.toString());
+            logger.error(responseData.toString());
         } else if(ex instanceof DataAccessException){ //数据库连接错误
-            logger.info(ex.getMessage());
+            logger.error(ex.getMessage());
             responseData.put("errorCode", EmBusinessError.DATARESOURCE_CONNECT_FAILURE.getErrorCode());
             responseData.put("errorMsg", EmBusinessError.DATARESOURCE_CONNECT_FAILURE.getErrorMsg());
-            logger.info(responseData.toString());
+            logger.error(responseData.toString());
+        }else if(ex instanceof HttpMessageNotReadableException){ // 序列化异常
+            logger.error(ex.getMessage());
+            responseData.put("errorCode", EmBusinessError.JSON_SEQUENCE_WRONG.getErrorCode());
+            responseData.put("errorMsg", EmBusinessError.JSON_SEQUENCE_WRONG.getErrorMsg()+"'"+ex.getMessage()+"'");
+            logger.error(responseData.toString());
         }else{
             responseData.put("errorCode", EmBusinessError.UNKNOWN_ERROR.getErrorCode());
             responseData.put("errorMsg", ex.getMessage());
-            logger.info(responseData.toString());
+            logger.error(responseData.toString());
         }
 
         return CommonReturnType.create(responseData,"fail");
