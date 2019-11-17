@@ -3,6 +3,7 @@ package com.fehead.lang.controller;
 import com.fehead.lang.error.BusinessException;
 import com.fehead.lang.error.EmBusinessError;
 import com.fehead.lang.response.CommonReturnType;
+import com.fehead.lang.response.ErrorMsgType;
 import com.fehead.lang.response.MetronicMeta;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
@@ -16,8 +17,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * @author lmwis
@@ -35,40 +34,46 @@ public class BaseController {
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
     public Object handlerException(HttpServletRequest request, Exception ex) {
-        Map<String, Object> responseData = new HashMap<>();
+        ErrorMsgType responseData ;
         if (ex instanceof BusinessException) {
-            BusinessException businessException = (BusinessException)ex;
-            responseData.put("errorCode", businessException.getErrorCode());
-            responseData.put("errorMsg", businessException.getErrorMsg());
-            logger.error(responseData.toString());
-        } else if(ex instanceof DataAccessException){ //数据库连接错误
+            BusinessException businessException = (BusinessException) ex;
+            responseData = packErrorCommonReturnType(businessException.getErrorCode()
+                    , businessException.getErrorMsg());
+        } else if (ex instanceof DataAccessException) { //数据库连接错误
             logger.error(ex.getMessage());
-            responseData.put("errorCode", EmBusinessError.DATARESOURCE_CONNECT_FAILURE.getErrorCode());
-            responseData.put("errorMsg", EmBusinessError.DATARESOURCE_CONNECT_FAILURE.getErrorMsg());
-            logger.error(responseData.toString());
-        }else if(ex instanceof HttpMessageNotReadableException){ // 序列化异常
+            responseData = packErrorCommonReturnType(EmBusinessError.DATARESOURCE_CONNECT_FAILURE.getErrorCode()
+                    , EmBusinessError.DATARESOURCE_CONNECT_FAILURE.getErrorMsg());
+        } else if (ex instanceof HttpMessageNotReadableException) { // 序列化异常
             logger.error(ex.getMessage());
-            responseData.put("errorCode", EmBusinessError.JSON_SEQUENCE_WRONG.getErrorCode());
-            responseData.put("errorMsg", EmBusinessError.JSON_SEQUENCE_WRONG.getErrorMsg()+"'"+ex.getMessage()+"'");
-            logger.error(responseData.toString());
-        }else{
-            responseData.put("errorCode", EmBusinessError.UNKNOWN_ERROR.getErrorCode());
-            responseData.put("errorMsg", ex.getMessage());
-            logger.error(responseData.toString());
+            responseData = packErrorCommonReturnType(EmBusinessError.JSON_SEQUENCE_WRONG.getErrorCode()
+                    , EmBusinessError.JSON_SEQUENCE_WRONG.getErrorMsg());
+        } else {
+            logger.error(ex.getMessage());
+            responseData = packErrorCommonReturnType(EmBusinessError.UNKNOWN_ERROR.getErrorCode()
+                    , ex.getMessage());
         }
-
-        return CommonReturnType.create(responseData,"fail");
+        logger.error("{"+responseData.toString()+"}");
+        return CommonReturnType.create(responseData, "fail");
     }
+
+    protected ErrorMsgType packErrorCommonReturnType(int errorCode, String errorMsg){
+        return new ErrorMsgType(){{
+            this.setErrorCode(errorCode);
+            this.setErrorMsg(errorMsg);
+        }};
+    }
+
 
     /**
      * 判断字符串是否为空
+     *
      * @param args 校验参数
      * @return
      * @throws BusinessException
      */
-    protected boolean validateNull(String ... args) throws BusinessException {
-        for (String s:args){
-            if (StringUtils.isEmpty(s)){
+    protected boolean validateNull(String... args) throws BusinessException {
+        for (String s : args) {
+            if (StringUtils.isEmpty(s)) {
                 throw new BusinessException(EmBusinessError.PARAMETER_VALIDATION_ERROR);
             }
         }
@@ -77,15 +82,16 @@ public class BaseController {
 
     /**
      * 判断字符串是否为空字符串，数字是否为0，对象是否为null
+     *
      * @param args 校验参数
      * @return
      * @throws BusinessException
      */
-    protected boolean validateNull(Object ... args) throws BusinessException {
-        for (Object o:args){
-            if ((o instanceof String && StringUtils.equals(o.toString(),""))
-                    || (o instanceof Integer && new Integer(o.toString())==0)
-                    ||o==null){
+    protected boolean validateNull(Object... args) throws BusinessException {
+        for (Object o : args) {
+            if ((o instanceof String && StringUtils.equals(o.toString(), ""))
+                    || (o instanceof Integer && new Integer(o.toString()) == 0)
+                    || o == null) {
                 throw new BusinessException(EmBusinessError.PARAMETER_VALIDATION_ERROR);
             }
         }
@@ -94,13 +100,14 @@ public class BaseController {
 
     /**
      * MetronicMeta 封装 ，产生表头
-     *  默认按照id升序排列
-     * @param pageable 分页器
+     * 默认按照id升序排列
+     *
+     * @param pageable  分页器
      * @param totalPage 总页数
-     * @param size 每一页数据条数
+     * @param size      每一页数据条数
      * @return
      */
-    protected MetronicMeta generatorMeta(Pageable pageable, Integer totalPage, Integer size){
+    protected MetronicMeta generatorMeta(Pageable pageable, Integer totalPage, Integer size) {
         MetronicMeta meta = new MetronicMeta();
         meta.setPage(pageable.getPageNumber());
         meta.setPerpage(pageable.getPageSize());
