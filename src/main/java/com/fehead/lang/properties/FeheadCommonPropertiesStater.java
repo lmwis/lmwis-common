@@ -1,6 +1,5 @@
-package com.fehead.lang.config;
+package com.fehead.lang.properties;
 
-import org.springframework.boot.autoconfigure.security.SecurityProperties;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 

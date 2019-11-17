@@ -1,4 +1,4 @@
-package com.fehead.lang.config;
+package com.fehead.lang.properties;
 
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;

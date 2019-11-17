@@ -1,4 +1,4 @@
-package com.fehead.lang.config;
+package com.fehead.lang.properties;
 
 import com.fehead.lang.model.SmsModel;
 import lombok.Data;

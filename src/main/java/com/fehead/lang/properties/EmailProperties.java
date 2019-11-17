@@ -1,5 +1,5 @@
 
-package com.fehead.lang.config;
+package com.fehead.lang.properties;
 
 import lombok.Data;
 

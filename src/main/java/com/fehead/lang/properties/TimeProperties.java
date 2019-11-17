@@ -1,4 +1,4 @@
-package com.fehead.lang.config;
+package com.fehead.lang.properties;
 
 /**
  * 写代码 敲快乐
