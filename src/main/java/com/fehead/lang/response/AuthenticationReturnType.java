@@ -1,4 +1,6 @@
-package com.fehead.response;
+package com.fehead.lang.response;
+
+import io.swagger.annotations.ApiModel;
 
 /**
  * @author lmwis
@@ -6,6 +8,7 @@ package com.fehead.response;
  * @date 2019-08-29 15:56
  * @Version 1.0
  */
+@ApiModel(value = "api认证相关接口返回类型",parent = FeheadResponse.class)
 public class AuthenticationReturnType extends FeheadResponse{
 
     //返回状态码

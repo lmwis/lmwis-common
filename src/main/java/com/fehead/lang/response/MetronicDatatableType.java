@@ -1,4 +1,6 @@
-package com.fehead.response;
+package com.fehead.lang.response;
+
+import io.swagger.annotations.ApiModel;
 
 /**
  * @author lmwis
@@ -6,6 +8,7 @@ package com.fehead.response;
  * @date 2019-08-30 09:00
  * @Version 1.0
  */
+@ApiModel(value = "Metronic后台管理系统数据表格返回类型",parent = FeheadResponse.class)
 public class MetronicDatatableType extends FeheadResponse{
 
     MetronicMeta meta;

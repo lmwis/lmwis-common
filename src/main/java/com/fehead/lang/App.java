@@ -1,4 +1,4 @@
-package com.fehead;
+package com.fehead.lang;
 
 /**
  * Hello world!
