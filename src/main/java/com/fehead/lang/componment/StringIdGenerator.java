@@ -1,5 +1,6 @@
 package com.fehead.lang.componment;
 
+import org.hibernate.validator.constraints.Email;
 import org.springframework.stereotype.Component;
 
 import java.util.Date;
@@ -21,15 +22,34 @@ public class StringIdGenerator {
      * 规则：
      *  当前时间戳+UUID
      * 总位数45
+     * 名称命名不规范 已过期 推荐使用 generateId
      * @return
      */
+    @Deprecated
     public String generatorId() {
 
         return new Date().getTime()
                 +
                 Stream.of(UUID.randomUUID().toString().split("-"))
-                .reduce((a, b) -> a + b)
-                .get();
+                        .reduce((a, b) -> a + b)
+                        .get();
+
+    }
+
+    /**
+     * 使用UUID生成字符串ID
+     * 规则：
+     *  当前时间戳+UUID
+     * 总位数45
+     * @return
+     */
+    public String generateId() {
+
+        return new Date().getTime()
+                +
+                Stream.of(UUID.randomUUID().toString().split("-"))
+                        .reduce((a, b) -> a + b)
+                        .get();
 
     }
 
