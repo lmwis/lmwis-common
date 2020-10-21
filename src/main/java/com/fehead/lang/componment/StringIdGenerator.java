@@ -1,6 +1,5 @@
 package com.fehead.lang.componment;
 
-import org.hibernate.validator.constraints.Email;
 import org.springframework.stereotype.Component;
 
 import java.util.Date;
