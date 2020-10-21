@@ -14,7 +14,6 @@ import java.util.List;
 @Data
 public class SmsProperties {
 
-    // 手机号+验证码登录
     private String loginPreKeyInRedis;
     private String registerPreKeyInRedis;
     private String resetPreKeyInRedis;
