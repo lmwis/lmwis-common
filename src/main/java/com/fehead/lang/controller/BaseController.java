@@ -81,7 +81,7 @@ public class BaseController {
     }
 
     /**
-     * 判断字符串是否为空字符串，数字是否为0，对象是否为null
+     * 判断字符串是否为空字符串，int or long是否为0，对象是否为null
      *
      * @param args 校验参数
      * @return
@@ -91,8 +91,9 @@ public class BaseController {
         for (Object o : args) {
             if ((o instanceof String && StringUtils.equals(o.toString(), ""))
                     || (o instanceof Integer && new Integer(o.toString()) == 0)
+                    || (o instanceof Long && new Long(o.toString()) == 0)
                     || o == null) {
-                throw new BusinessException(EmBusinessError.PARAMETER_VALIDATION_ERROR);
+                return false;
             }
         }
         return true;
