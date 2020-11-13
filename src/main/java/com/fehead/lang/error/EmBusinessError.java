@@ -23,7 +23,7 @@ public enum EmBusinessError implements CommonError {
     // 20000 开头为用户信息相关错误定义
     USER_NOT_EXIST(20001, "用户不存在"),
     USER_LOGIN_FAIL(20002, "用户手机号或密码不正确"),
-    USER_ALREAY_EXIST(20003, "用户已经注册"),
+    USER_ALREADY_EXIST(20003, "用户已经注册"),
 
     // 30000 开头为验证码相关错误
     SMS_BLANK(30001, "验证码为空"),
@@ -43,7 +43,7 @@ public enum EmBusinessError implements CommonError {
     SERVICE_REQUIRE_AUTHENTICATION(90001,"访问的服务需要身份认证"),
     SERVICE_REQUIRE_ROLE_ADMIN(90002,"访问服务需要管理员权限"),
 
-    FEHEAD_CA_CERTIFICATE_ILLEGL(90003,"证书不合法"),
+    FEHEAD_CA_CERTIFICATE_ILLEGAL(90003,"证书不合法"),
     FEHEAD_CA_CERTIFICATE_GENERATOR_FAIL(90004,"证书生成失败"),
 
     SERVICE_AUTHENTICATION_ILLEGAL(90005,"用户认证凭据不合法"),
