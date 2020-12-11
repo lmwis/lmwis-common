@@ -1,5 +1,7 @@
 package com.fehead.lang.properties;
 
+import lombok.Data;
+
 /**
  * 写代码 敲快乐
  * だからよ...止まるんじゃねぇぞ
@@ -20,7 +22,9 @@ package com.fehead.lang.properties;
  * 　　 █
  *
  * @author Nightnessss 2019/8/27 9:50
+ * @modify lmwis 2020/12/11 16.34
  */
+@Data
 public class TimeProperties {
 
     private int smsExpiredTime = 30*60;
@@ -33,43 +37,4 @@ public class TimeProperties {
 
     private int smsKeyExpiredTime = 6*60*60;
 
-    public int getSmsExpiredTime() {
-        return smsExpiredTime;
-    }
-
-    public void setSmsExpiredTime(int smsExpiredTime) {
-        this.smsExpiredTime = smsExpiredTime;
-    }
-
-    public int getEmailExpiredTime() {
-        return emailExpiredTime;
-    }
-
-    public int getSmsResendTime() {
-        return smsResendTime;
-    }
-
-    public void setSmsResendTime(int smsResendTime) {
-        this.smsResendTime = smsResendTime;
-    }
-
-    public void setEmailExpiredTime(int emailExpiredTime) {
-        this.emailExpiredTime = emailExpiredTime;
-    }
-
-    public int getEmailResendTime() {
-        return emailResendTime;
-    }
-
-    public void setEmailResendTime(int emailResendTime) {
-        this.emailResendTime = emailResendTime;
-    }
-
-    public int getSmsKeyExpiredTime() {
-        return smsKeyExpiredTime;
-    }
-
-    public void setSmsKeyExpiredTime(int smsKeyExpiredTime) {
-        this.smsKeyExpiredTime = smsKeyExpiredTime;
-    }
 }

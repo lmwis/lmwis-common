@@ -3,6 +3,11 @@ package com.fehead.lang.error;
 /**
  * @author lmwis
  * @description:实现通用错误接口的异常枚举类
+ *  通用错误类型:10001-10999
+ *  用户信息相关错误:20001-20999
+ *  验证码相关错误:30001-30999
+ *  邮件相关错误:40001-40999
+ *  系统认证相关错误:90001-90009
  * @date 2019-08-28 20:29
  * @Version 1.0
  */
@@ -39,7 +44,7 @@ public enum EmBusinessError implements CommonError {
     EMAIL_SEND_FAILURE(40005, "发送失败"),
     EMAIL_ALREADY_SEND(40006, "邮件已发送"),
 
-    // 90000 开头为用户认证相关错误
+    // 90000 开头为系统认证相关错误
     SERVICE_REQUIRE_AUTHENTICATION(90001,"访问的服务需要身份认证"),
     SERVICE_REQUIRE_ROLE_ADMIN(90002,"访问服务需要管理员权限"),
 
