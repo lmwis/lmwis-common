@@ -20,4 +20,5 @@ public class SecurityProperties {
      * token过期时间默认十天
      */
     private long jwtExpiredTime = 10 * 60 * 60 * 24 * 1000;
+//    private long jwtExpiredTime = 60 * 1000;
 }
