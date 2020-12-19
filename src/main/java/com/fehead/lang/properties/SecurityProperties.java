@@ -21,4 +21,10 @@ public class SecurityProperties {
      */
     private long jwtExpiredTime = 10 * 60 * 60 * 24 * 1000;
 //    private long jwtExpiredTime = 60 * 1000;
+
+    /**
+     * 生成jwt的密钥，请根据项目进行覆盖
+     *  内部相互访问的密钥
+     */
+    private String jwtInnerSecretKey = "fehead";
 }
