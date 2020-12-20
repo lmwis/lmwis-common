@@ -1,5 +1,7 @@
 package com.fehead.lang.util;
 
+import com.fehead.lang.error.BusinessException;
+import com.fehead.lang.error.EmBusinessError;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
@@ -57,12 +59,12 @@ public class JWTUtil {
      * @param sign
      * @return
      */
-    public static String parasToken4Subject(String token,String sign){
+    public static String parasToken4Subject(String token,String sign) throws BusinessException {
         try {
             return parasTokenBody(token,sign)
                     .getSubject();
         }catch (Exception exp){
-            throw new IllegalArgumentException("token无效");
+            throw new BusinessException(EmBusinessError.SERVICE_AUTHENTICATION_INVALID);
         }
     }
 

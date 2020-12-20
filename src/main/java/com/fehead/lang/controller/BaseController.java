@@ -57,10 +57,7 @@ public class BaseController {
     }
 
     protected ErrorMsgType packErrorCommonReturnType(int errorCode, String errorMsg){
-        return new ErrorMsgType(){{
-            this.setErrorCode(errorCode);
-            this.setErrorMsg(errorMsg);
-        }};
+        return new ErrorMsgType(errorCode,errorMsg);
     }
 
 
