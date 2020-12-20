@@ -25,7 +25,7 @@ import javax.servlet.http.HttpServletRequest;
  * @Version 1.0
  */
 public class BaseController {
-    private static final Logger logger = LoggerFactory.getLogger(BaseController.class);
+    protected static final Logger logger = LoggerFactory.getLogger(BaseController.class);
 
     public static final String CONTENT_TYPE_FORMED = "application/x-www-form-urlencoded";
 
@@ -57,10 +57,7 @@ public class BaseController {
     }
 
     protected ErrorMsgType packErrorCommonReturnType(int errorCode, String errorMsg){
-        return new ErrorMsgType(){{
-            this.setErrorCode(errorCode);
-            this.setErrorMsg(errorMsg);
-        }};
+        return new ErrorMsgType(errorCode,errorMsg);
     }
 
 

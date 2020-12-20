@@ -21,7 +21,16 @@ public class SmsProperties {
     private String appKey;
     private String secret;
     private String regionId;
+    /**
+     * 签名
+     */
     private String signName;
+    /**
+     * 短信模板
+     */
     private List<SmsModel> smsModel;
+    /**
+     * 验证码长度
+     */
     private Integer smsNumber;
 }

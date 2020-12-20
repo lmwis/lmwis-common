@@ -15,6 +15,8 @@ public class FeheadProperties {
 
     private SmsProperties smsProperties = new SmsProperties();
 
+    private SecurityProperties securityProperties = new SecurityProperties();
+
     private EmailProperties emailProperties = new EmailProperties();
 
     private TimeProperties timeProperties = new TimeProperties();
