@@ -30,11 +30,12 @@ public enum EmBusinessError implements CommonError {
     USER_LOGIN_FAIL(20002, "用户手机号或密码不正确"),
     USER_ALREADY_EXIST(20003, "用户已经注册"),
 
-    // 30000 开头为验证码相关错误
+    // 30000 开头为短信相关错误
     SMS_BLANK(30001, "验证码为空"),
     SMS_ISNULL(30002, "验证码不存在"),
     SMS_ALREADY_SEND(30003, "验证码已发送"),
     SMS_ILLEGAL(30004, "验证码不匹配"),
+    SMS_SEND_FAILED(30005, "短信发送失败"),
 
     // 40000 开头为邮件相关错误
     EMAIL_FROM_EMPTY(40001, "发件人为空"),
