@@ -21,11 +21,11 @@
     </parent>
 
     <packaging>jar</packaging>
-    <groupId>com.fehead.open</groupId>
-    <artifactId>fehead-common</artifactId>
+    <groupId>com.lmwis</groupId>
+    <artifactId>lmwis-common</artifactId>
     <version>1.0-SNAPSHOT</version>
 
-    <name>fehead-common</name>
+    <name>lmwis-common</name>
 
     <dependencies>
 
