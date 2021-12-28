@@ -14,7 +14,7 @@ public class WxUserMessageReturnType extends FeheadResponse {
 
     public static WxUserMessageReturnType create(Object result) {
         WxUserMessageReturnType type = new WxUserMessageReturnType();
-        type.setData(result);
+//        type.setData(result);
         return type;
     }
 }

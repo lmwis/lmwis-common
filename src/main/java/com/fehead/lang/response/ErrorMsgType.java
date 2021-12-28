@@ -1,7 +1,6 @@
 package com.fehead.lang.response;
 
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 
 /**
@@ -11,11 +10,16 @@ import lombok.Data;
  * @Version 1.0
  */
 @Data
-@AllArgsConstructor
+//@AllArgsConstructor
 public class ErrorMsgType {
     private int errorCode;
 
     private String errorMsg;
+
+    public ErrorMsgType(int errorCode, String errorMsg) {
+        this.errorCode = errorCode;
+        this.errorMsg = errorMsg;
+    }
 
     @Override
     public String toString() {
