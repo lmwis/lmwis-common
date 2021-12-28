@@ -93,6 +93,15 @@
                 </repository>
             </distributionManagement>
         </profile>
+        <profile>
+            <id>disable-java8-doclint</id>
+            <activation>
+                <jdk>[1.8,)</jdk>
+            </activation>
+            <properties>
+                <additionalparam>-Xdoclint:none</additionalparam>
+            </properties>
+        </profile>
     </profiles>
     <!--  <parent>-->
     <!--    &lt;!&ndash;根据需要重新指定父类&ndash;&gt;-->
