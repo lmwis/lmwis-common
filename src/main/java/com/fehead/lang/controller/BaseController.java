@@ -5,6 +5,7 @@ import com.fehead.lang.error.EmBusinessError;
 import com.fehead.lang.response.CommonReturnType;
 import com.fehead.lang.response.ErrorMsgType;
 import com.fehead.lang.response.MetronicMeta;
+import com.fehead.lang.util.GsonUtil;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -12,7 +13,6 @@ import org.springframework.dao.DataAccessException;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.converter.HttpMessageNotReadableException;
-import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -62,7 +62,7 @@ public class BaseController {
             responseData = packErrorCommonReturnType(EmBusinessError.UNKNOWN_ERROR.getErrorCode()
                     , ex.getMessage());
         }
-        logger.error("{"+responseData.toString()+"}");
+        logger.error("error message:{}", GsonUtil.toString(responseData));
         return CommonReturnType.create(responseData, "fail");
     }
 
@@ -95,6 +95,9 @@ public class BaseController {
      * @throws BusinessException
      */
     protected boolean validateNull(Object... args) throws BusinessException {
+        if (args==null){
+            return false;
+        }
         for (Object o : args) {
             if ((o instanceof String && StringUtils.equals(o.toString(), ""))
                     || (o instanceof Integer && new Integer(o.toString()) == 0)

@@ -20,10 +20,4 @@ public class ErrorMsgType {
         this.errorCode = errorCode;
         this.errorMsg = errorMsg;
     }
-
-    @Override
-    public String toString() {
-        return "\"errorCode\":"+errorCode
-                +",\"errorMsg\":"+"\""+errorMsg+"\"";
-    }
 }
