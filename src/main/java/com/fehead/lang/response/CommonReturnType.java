@@ -1,6 +1,5 @@
 package com.fehead.lang.response;
 
-import com.fehead.lang.util.GsonUtil;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.ToString;
@@ -25,8 +24,8 @@ public class CommonReturnType extends FeheadResponse {
 
     public static CommonReturnType create(Object result, String status) {
         CommonReturnType type = new CommonReturnType();
-        type.setData(GsonUtil.toString(result));
-//        type.setData(result);
+//        type.setData(GsonUtil.toString(result));
+        type.setData(result);
         type.setStatus(status);
 
         return type;
